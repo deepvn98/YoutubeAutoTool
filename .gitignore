@@ -1,0 +1,28 @@
+# --- BẢO MẬT (TUYỆT ĐỐI KHÔNG UP LÊN GIT) ---
+firebase_key.json
+client_secrets/
+user_tokens/
+license.key
+*.spec
+
+# --- CÁC FILE DỮ LIỆU CỤC BỘ (MỚI THÊM) ---
+license_db.json
+grid_state_dynamic.json
+
+# --- RÁC HỆ THỐNG & FILE TẠM ---
+__pycache__/
+*.pyc
+venv/
+.env
+.vscode/
+
+# --- FILE BUILD EXE ---
+build/
+dist/
+*.exe
+
+# --- FILE CẤU HÌNH USER ---
+settings.json
+grid_state.json
+**/done.json
+info_mau.txt

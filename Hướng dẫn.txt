@@ -1,0 +1,106 @@
+================================================================
+      HƯỚNG DẪN SỬ DỤNG PHẦN MỀM AUTO UPLOAD YOUTUBE
+================================================================
+
+Chào mừng bạn sử dụng phần mềm tự động đăng tải video lên YouTube. 
+Dưới đây là các bước chi tiết để cài đặt và sử dụng phần mềm.
+
+----------------------------------------------------------------
+1. YÊU CẦU & CHUẨN BỊ
+----------------------------------------------------------------
+Bạn không cần cài đặt thêm phần mềm hỗ trợ nào khác. Chỉ cần máy tính có kết nối Internet.
+
+QUAN TRỌNG:
+Trước khi chạy phần mềm, bạn hãy tạo một thư mục mới và đảm bảo 2 file sau nằm cạnh nhau:
+   1. AutoYoutubeUploader.exe (File phần mềm chính)
+   2. firebase_key.json       (File bản quyền - Bắt buộc phải có)
+
+-> Nếu thiếu file "firebase_key.json", phần mềm sẽ không mở được.
+
+----------------------------------------------------------------
+2. CHUẨN BỊ FILE API (CLIENT SECRET)
+----------------------------------------------------------------
+Để phần mềm có quyền đăng video lên kênh của bạn, bạn cần tải file "Chìa khóa" (Client Secret) từ Google.
+
+Cách lấy file:
+   1. Truy cập: https://console.cloud.google.com/
+   2. Tạo Project mới -> Vào "APIs & Services" -> "Library" -> Tìm và Bật "YouTube Data API v3".
+   3. Vào mục "Credentials" -> "Create Credentials" -> "OAuth client ID".
+   4. Tại mục "Application type", chọn "Desktop app".
+   5. Tải file JSON về máy tính (Đây là file chứa chìa khóa bí mật).
+
+----------------------------------------------------------------
+3. CẤU TRÚC FILE NỘI DUNG (INFO.TXT)
+----------------------------------------------------------------
+Mỗi thư mục chứa video cần có một file tên là "info.txt" để phần mềm biết tiêu đề, mô tả...
+Bạn KHÔNG CẦN TẠO THỦ CÔNG, hãy dùng chức năng tải mẫu trong phần mềm.
+
+Cấu trúc file mẫu sẽ như sau:
+
+   Tiêu đề:
+   Tên video của bạn viết ở đây (Có thể dài dòng tùy ý)
+
+   Giới thiệu:
+   Nội dung mô tả video viết ở đây.
+   Có thể xuống dòng thoải mái.
+   Link, hashtag...
+
+   Thẻ tag video:
+   từ khóa 1
+   ,từ khóa 2
+   ,từ khóa 3
+
+----------------------------------------------------------------
+4. CÁCH SỬ DỤNG PHẦN MỀM
+----------------------------------------------------------------
+
+BƯỚC 1: MỞ PHẦN MỀM
+   - Click đúp vào file "AutoYoutubeUploader.exe".
+   - Nhập "License Key" (Mã bản quyền) nếu được yêu cầu.
+
+BƯỚC 2: CÀI ĐẶT & TẢI FILE MẪU
+   - Bấm nút [ ⚙ Settings ] trên thanh menu.
+   - Chọn Ngôn ngữ, Quốc gia, Danh mục mặc định.
+   - QUAN TRỌNG: Bấm nút [ ⬇ Tải file info.txt mẫu ] để lưu file mẫu về máy tính dùng cho các video sau này.
+   - Bấm [ SAVE CONFIG ].
+
+BƯỚC 3: NHẬP CLIENT SECRET
+   - Bấm nút [ 🔑 Secrets ].
+   - Bấm [ + Import ] và chọn file JSON bạn đã tải ở bước 2.
+
+BƯỚC 4: LÊN LỊCH ĐĂNG VIDEO
+   Giao diện chính là bảng danh sách các video chờ đăng:
+
+   1. Bấm [ + 1 Row ] để thêm dòng mới.
+   2. Cột "Client Secret": Chọn file API vừa thêm.
+   3. Cột "Video Folder": Bấm icon 📂 để chọn thư mục chứa video và file info.txt.
+   4. Cột "YouTube Account":
+      - Bấm dấu (+) để đăng nhập Gmail kênh YouTube (Trình duyệt sẽ mở ra để xác nhận).
+      - Lần sau chỉ cần chọn tài khoản từ danh sách.
+   5. Cột "Schedule Time": Nhập giờ đăng mong muốn (Ví dụ: 08:00, 20:00). Phần mềm sẽ tự chọn giờ gần nhất.
+   6. Cột "Gap": Nhập số ngày giãn cách (0 = đăng ngay trong ngày, 1 = cách 1 ngày...).
+
+BƯỚC 5: CHẠY (START)
+   - Kiểm tra cột Status báo "Ready".
+   - Bấm nút [ ▶ START ] màu xanh lá.
+   - Phần mềm sẽ chạy tự động, bạn có thể xem tiến trình ở khung bên dưới.
+
+----------------------------------------------------------------
+5. CÁC CÂU HỎI THƯỜNG GẶP (FAQ)
+----------------------------------------------------------------
+
+Q: Làm sao để đăng nhiều kênh cùng lúc?
+A: Dùng nút [ ➕ Batch Add ] để thêm hàng loạt tài khoản vào bảng điều khiển cực nhanh.
+
+Q: Tôi muốn tạm dừng?
+A: Bấm nút [ ⏸ ] ngay trên dòng đang chạy. Sửa xong bấm lại để Tiếp tục.
+
+Q: Lỗi "Quota Exceeded" là gì?
+A: Bạn đã hết lượt đăng trong ngày của Google (Khoảng 6 video/ngày với tài khoản thường). Hãy đợi qua 2h chiều ngày hôm sau (giờ VN) để có lượt mới.
+
+Q: File "done.json" là gì?
+A: Khi đăng thành công, phần mềm tạo file này để đánh dấu, tránh đăng lại nhầm video cũ. Nếu muốn đăng lại, hãy xóa file này đi.
+
+================================================================
+                     CHÚC BẠN THÀNH CÔNG!
+================================================================
